@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TodoApp">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <script src="app.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Todo List</h1>
+<div ng-controller = "TodoController">  <!-- ng-controller is a angular js directive, it defines a controller; -->
+<input ng-model="name"  placeholder="todo name"/>
+
+<button ng-click="newTodo()"> <!-- the newTodo() function runs when the button is clicked-->
+    New ToDo
+</button>
+    <button ng-click="updateTodo($index)">
+        Update Todo
+    </button>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Action </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="todo in todos">  <!-- ng-repeat iterates   -->
+            <td>{{$index}}</td>
+            <td>{{todo.name}}</td>
+            <td>
+                <button ng-click="deleteTodo($index)">
+                    Delete Todo
+                </button>
+                <button ng-click="selectTodo($index)">
+                    Select Todo
+                </button>
+
+            </td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
+    {{todos}}   <!-- its called rendering. display text or something that is not bound to anything. its a free form. Allows you to see things live-->
+    </div>
+
+</body>
+</html>

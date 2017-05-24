@@ -28,7 +28,7 @@
 
             $http.get('/todo/' + $scope.name)
                 .success(function(todos) {
-                  $scope.todos = todos;
+                  $scope.todos = todos;    //error
                 })
 
 
